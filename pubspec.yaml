@@ -1,0 +1,53 @@
+# Eng Mouaz M. Al-Shahmeh
+name: sells_app
+description: POS Flutter project - Al-Raedah For Information Systems.
+publish_to: 'none'
+version: 1.0.0+1
+environment:
+  sdk: ">=2.12.0 <3.0.0"
+dependencies:
+  flutter:
+    sdk: flutter
+  cupertino_icons: ^1.0.2
+  provider: ^6.0.0
+  image_picker: ^0.8.3+3
+  http: ^0.13.3
+  flutter_switch: ^0.3.2
+  path_provider: ^2.0.2
+  flutter_localizations: 
+    sdk: flutter
+    version: ^0.0.0
+  animated_splash_screen: ^1.1.0
+  barcode: ^2.1.0
+  barcode_widget: ^2.0.1
+  flutter_barcode_scanner: ^2.0.0
+  pdf: ^3.6.0
+  printing:
+  qr_flutter: ^4.0.0
+
+  # new for ORM
+  sqflite:
+  sqfentity:
+  sqfentity_gen:
+
+  # google_fonts: ^2.1.0
+  # connectivity: ^3.0.6
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+
+  # new for ORM
+  build_runner:
+  build_verify:
+
+flutter:
+  uses-material-design: true
+  assets:
+    - assets/images/
+  fonts:
+    - family: Arial
+      fonts:
+        - asset: assets/fonts/Arial.ttf
+    - family: Cairo
+      fonts:
+        - asset: assets/fonts/Cairo.ttf
