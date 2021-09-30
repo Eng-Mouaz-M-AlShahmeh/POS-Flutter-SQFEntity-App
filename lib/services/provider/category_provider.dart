@@ -4,7 +4,8 @@ import 'package:sells_app/repositories/orm_config.dart';
 
 class CategoryProvider extends ChangeNotifier {
   static const _dateTimeString = '2020-07-17T03:18:31.177769-04:00';
-  DateTime? _dateTime = DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
+  DateTime? _dateTime =
+      DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
   DateTime? get dateTime => _dateTime;
 
   String? _categoryTitle = '';
@@ -92,5 +93,4 @@ class CategoryProvider extends ChangeNotifier {
     getAllCategories();
     notifyListeners();
   }
-
 }

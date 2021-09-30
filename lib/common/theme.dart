@@ -10,37 +10,31 @@ final appTheme = ThemeData(
       fontSize: 56,
       color: Color(0xff707070),
     ),
-    
     headline2: TextStyle(
       fontFamily: 'Cairo',
       fontSize: 36,
       color: Color(0xff707070),
     ),
-    
     headline3: TextStyle(
       fontFamily: 'Cairo',
       fontSize: 14,
       color: Color(0xff707070),
     ),
-    
     headline4: TextStyle(
       fontFamily: 'Cairo',
       fontSize: 14,
       color: Color(0xffffffff),
     ),
-    
     headline5: TextStyle(
       fontFamily: 'Cairo',
       fontSize: 12,
       color: Color(0xff707070),
     ),
-    
     headline6: TextStyle(
       fontFamily: 'Cairo',
       fontSize: 10,
       color: Colors.red,
     ),
-    
   ),
 );
 
@@ -53,67 +47,67 @@ Color bgColorRegular = Color(0xffebebeb);
 Color tealInfo = Color(0xff008080);
 
 TextStyle tableHeader = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 10,
-      color: Color(0xffffffff),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 10,
+  color: Color(0xffffffff),
+);
 
 TextStyle tableHeaderSub = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 10,
-      color: Color(0xff707070),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 10,
+  color: Color(0xff707070),
+);
 
 TextStyle addNewText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 14,
-      color: Color(0xff6bc57d),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 14,
+  color: Color(0xff6bc57d),
+);
 
 TextStyle categoryText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 12,
-      color: Color(0xff6bc57d),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 12,
+  color: Color(0xff6bc57d),
+);
 
 TextStyle unitText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 14,
-      color: Color(0xff6bc57d),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 14,
+  color: Color(0xff6bc57d),
+);
 
 TextStyle buttonHomeText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 12,
-      color: Color(0xffffffff),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 12,
+  color: Color(0xffffffff),
+);
 
 TextStyle imageButtonText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 12,
-      color: Color(0xff707070),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 12,
+  color: Color(0xff707070),
+);
 
 TextStyle yesDeleteButtonText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 14,
-      color: Colors.red,
-    );
+  fontFamily: 'Cairo',
+  fontSize: 14,
+  color: Colors.red,
+);
 
 TextStyle noDeleteButtonText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 14,
-      color: Color(0xff707070),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 14,
+  color: Color(0xff707070),
+);
 
 TextStyle invoiceHeaderStyle = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 18,
-      color: Color(0xff707070),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 18,
+  color: Color(0xff707070),
+);
 
 TextStyle vatFinalText = TextStyle(
-      fontFamily: 'Cairo',
-      fontSize: 18,
-      color: Color(0xff000000),
-    );
+  fontFamily: 'Cairo',
+  fontSize: 18,
+  color: Color(0xff000000),
+);

@@ -4,6 +4,7 @@ import 'package:provider/provider.dart';
 import 'package:sells_app/common/splash.dart';
 import 'package:sells_app/common/theme.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:sells_app/services/lang/app_localizations.dart';
 import 'package:sells_app/services/provider/app_provider.dart';
 import 'package:sells_app/services/provider/category_provider.dart';
 import 'package:sells_app/services/provider/buy_invoice_provider.dart';
@@ -24,7 +25,8 @@ class MyApp extends StatelessWidget {
     return MultiProvider(
       providers: [
         ChangeNotifierProvider<AppProvider>(create: (context) => AppProvider()),
-        ChangeNotifierProvider<SettingsProvider>(create: (context) => SettingsProvider()),
+        ChangeNotifierProvider<SettingsProvider>(
+            create: (context) => SettingsProvider()),
         ChangeNotifierProvider<ProductProvider>(
             create: (context) => ProductProvider()),
         ChangeNotifierProvider<UserProvider>(
@@ -38,22 +40,33 @@ class MyApp extends StatelessWidget {
         ChangeNotifierProvider<BuyInvoiceProvider>(
             create: (context) => BuyInvoiceProvider()),
       ],
-      child: MaterialApp(
-        debugShowCheckedModeBanner: false,
-        localeListResolutionCallback: (locales, supportedLocales) {
-          return Locale('ar', 'SA');
-        },
-        locale: const Locale('ar'),
-        supportedLocales: const [Locale('ar')],
-        localizationsDelegates: [
-          GlobalMaterialLocalizations.delegate,
-          GlobalCupertinoLocalizations.delegate,
-          GlobalWidgetsLocalizations.delegate,
-        ],
-        title: 'AlRaedah App',
-        theme: appTheme,
-        home: SplashLogo(),
-      ),
+      builder: (context, child) {
+        var settings = context.watch<SettingsProvider>();
+        return MaterialApp(
+          debugShowCheckedModeBanner: false,
+          localeListResolutionCallback: (locales, supportedLocales) {
+            for (var supportedLocale in supportedLocales) {
+              if (supportedLocale.languageCode ==
+                      settings.locale!.languageCode &&
+                  supportedLocale.countryCode == settings.locale!.countryCode) {
+                return supportedLocale;
+              }
+            }
+            return supportedLocales.first;
+          },
+          locale: settings.locale,
+          supportedLocales: settings.allLocales,
+          localizationsDelegates: [
+            AppLocalizations.delegate,
+            GlobalMaterialLocalizations.delegate,
+            GlobalCupertinoLocalizations.delegate,
+            GlobalWidgetsLocalizations.delegate,
+          ],
+          title: 'AlRaedah App',
+          theme: appTheme,
+          home: SplashLogo(),
+        );
+      },
     );
   }
 }

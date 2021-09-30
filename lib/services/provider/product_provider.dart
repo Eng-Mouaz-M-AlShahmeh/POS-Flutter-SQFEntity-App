@@ -10,9 +10,8 @@ import 'package:sells_app/repositories/orm_config.dart';
 class ProductProvider extends ChangeNotifier {
   static const _dateTimeString = '2020-07-17T03:18:31.177769-04:00';
   DateTime? _dateTime =
-  DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
+      DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
   DateTime? get dateTime => _dateTime;
-
   // .........................................
   /// add product attributes
   // .........................................
@@ -143,6 +142,7 @@ class ProductProvider extends ChangeNotifier {
     }
     return null;
   }
+
   // .........................................
   // end image picker code
   // .........................................
@@ -190,6 +190,7 @@ class ProductProvider extends ChangeNotifier {
     _description = null;
     _catId = 0;
   }
+
   // .........................................
   /// add product attributes end
   // .........................................
@@ -209,8 +210,8 @@ class ProductProvider extends ChangeNotifier {
   List<bool> get isOpenListRecord => _isOpenListRecord;
   setIsOpenListRecord(int index) {
     _isOpenListRecord[index] = !_isOpenListRecord[index];
-    for(var i = 0; i < _isOpenListRecord.length; i++) {
-      if(i != index) {
+    for (var i = 0; i < _isOpenListRecord.length; i++) {
+      if (i != index) {
         _isOpenListRecord[i] = false;
       }
     }
@@ -218,11 +219,12 @@ class ProductProvider extends ChangeNotifier {
   }
 
   closeAllListRecord() {
-    for(var i = 0; i < _isOpenListRecord.length; i++) {
-        _isOpenListRecord[i] = false;
+    for (var i = 0; i < _isOpenListRecord.length; i++) {
+      _isOpenListRecord[i] = false;
     }
     notifyListeners();
   }
+
   // .........................................
   /// get products list end
   // .........................................
@@ -438,6 +440,7 @@ class ProductProvider extends ChangeNotifier {
     }
     return null;
   }
+
   // .........................................
   // end image picker code
   // .........................................
@@ -476,6 +479,7 @@ class ProductProvider extends ChangeNotifier {
     _descriptionEdit = val;
     notifyListeners();
   }
+
   // .........................................
   /// edit product attributes end
   // .........................................
@@ -527,5 +531,4 @@ class ProductProvider extends ChangeNotifier {
     _descriptionEdit = null;
     _catIdEdit = 0;
   }
-
 }

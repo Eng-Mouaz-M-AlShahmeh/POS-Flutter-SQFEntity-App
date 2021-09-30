@@ -4,7 +4,8 @@ import 'package:sells_app/repositories/orm_config.dart';
 
 class UserProvider extends ChangeNotifier {
   static const _dateTimeString = '2020-07-17T03:18:31.177769-04:00';
-  DateTime? _dateTime = DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
+  DateTime? _dateTime =
+      DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
   DateTime? get dateTime => _dateTime;
 
   String _username = '';
@@ -119,5 +120,4 @@ class UserProvider extends ChangeNotifier {
     getAllUsers();
     notifyListeners();
   }
-
 }

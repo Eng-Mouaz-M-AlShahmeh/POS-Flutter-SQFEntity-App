@@ -87,7 +87,8 @@ class UnitProductProvider extends ChangeNotifier {
     if (_unitsProductList.isNotEmpty) {
       _unitsProductList.forEach((row) {
         if (row.unitId == unitId && row.productId == productId) {
-          _isUnitCheckedStateList[unitIndex] = !_isUnitCheckedStateList[unitIndex];
+          _isUnitCheckedStateList[unitIndex] =
+              !_isUnitCheckedStateList[unitIndex];
           notifyListeners();
         } else {
           _isUnitCheckedStateList[unitIndex] = false;
@@ -110,11 +111,9 @@ class UnitProductProvider extends ChangeNotifier {
   List<UnitsProduct> _allUnitsProductList = [];
   List<UnitsProduct> get allUnitsProductList => _allUnitsProductList;
   getAllUnitsProductList() async {
-    _allUnitsProductList =
-    await UnitsProduct().select().toList();
+    _allUnitsProductList = await UnitsProduct().select().toList();
     notifyListeners();
   }
-
   // ........................................
   /// buy invoice description item end
   // ........................................
@@ -179,7 +178,16 @@ class UnitProductProvider extends ChangeNotifier {
   List<UnitsProduct> _unitsProductListEditPU = [];
   List<UnitsProduct> get unitsProductListEditPU => _unitsProductListEditPU;
   setSelectedUnitProductEdit(productId, unitId) async {
-    _unitsProductListEditPU = await UnitsProduct().select().startBlock.productId.equals(productId).and.unitId.equals(unitId).endBlock.toList();
+    _unitsProductListEditPU = await UnitsProduct()
+        .select()
+        .startBlock
+        .productId
+        .equals(productId)
+        .and
+        .unitId
+        .equals(unitId)
+        .endBlock
+        .toList();
     setUnitProductIdEdit(int.tryParse('${_unitsProductListEditPU[0].id}'));
     setSellPriceEdit(_unitsProductListEditPU[0].sellPrice);
     setBuyPriceEdit(_unitsProductListEditPU[0].buyPrice);
@@ -198,7 +206,8 @@ class UnitProductProvider extends ChangeNotifier {
     if (_unitsProductListEdit.isNotEmpty) {
       _unitsProductListEdit.forEach((row) {
         if (row.unitId == unitId && row.productId == productId) {
-          _isUnitCheckedStateListEdit[unitIndex] = !_isUnitCheckedStateListEdit[unitIndex];
+          _isUnitCheckedStateListEdit[unitIndex] =
+              !_isUnitCheckedStateListEdit[unitIndex];
         } else {
           _isUnitCheckedStateListEdit[unitIndex] = false;
         }
@@ -220,19 +229,37 @@ class UnitProductProvider extends ChangeNotifier {
   int? _lastUnitProductIdPlusOne = 1;
   int? get lastUnitProductIdPlusOne => _lastUnitProductIdPlusOne;
   getLastRowInsertedIDPlusOne() async {
-    _lastUnitProduct = await Product().select().orderByDesc('id').top(1).toList();
-    _lastUnitProductIdPlusOne = _lastUnitProduct.isNotEmpty? _lastUnitProduct[0].id! + 1 : 1;
+    _lastUnitProduct =
+        await Product().select().orderByDesc('id').top(1).toList();
+    _lastUnitProductIdPlusOne =
+        _lastUnitProduct.isNotEmpty ? _lastUnitProduct[0].id! + 1 : 1;
     notifyListeners();
   }
 
   deleteSelectedUnitProduct(productId, unitId) async {
-    await UnitsProduct().select().startBlock.productId.equals(productId).unitId.equals(unitId).endBlock.delete();
+    await UnitsProduct()
+        .select()
+        .startBlock
+        .productId
+        .equals(productId)
+        .unitId
+        .equals(unitId)
+        .endBlock
+        .delete();
     getAllUnitsProduct();
     notifyListeners();
   }
 
   deleteSelectedUnitProductEdit(productId, unitId) async {
-    await UnitsProduct().select().startBlock.productId.equals(productId).unitId.equals(unitId).endBlock.delete();
+    await UnitsProduct()
+        .select()
+        .startBlock
+        .productId
+        .equals(productId)
+        .unitId
+        .equals(unitId)
+        .endBlock
+        .delete();
     getAllUnitsProductEdit();
     notifyListeners();
   }
@@ -296,6 +323,4 @@ class UnitProductProvider extends ChangeNotifier {
     setQuantity('');
     setDescription('');
   }
-
-
 }

@@ -2,6 +2,7 @@
 import 'package:flutter/material.dart';
 import 'package:sells_app/common/text_field.dart';
 import 'package:sells_app/common/theme.dart';
+import 'package:sells_app/services/lang/app_localizations.dart';
 import 'package:sells_app/services/provider/product_provider.dart';
 import 'package:provider/provider.dart';
 
@@ -23,7 +24,7 @@ class SearchProductsField extends StatelessWidget {
     return TextFormField(
       controller: _searchKeyController,
       decoration: textInputDecoration.copyWith(
-        labelText: 'بحث',
+        labelText: '${AppLocalizations.of(context).translate('search')!}',
         prefixIcon: InkWell(
           onTap: () async {
             await product.searchProductsByScanBarcode();

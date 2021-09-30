@@ -1,6 +1,5 @@
 // // Eng Mouaz M. Al-Shahmeh
 // const dateTimeString = '2020-07-17T03:18:31.177769-04:00';
-//
 // class InvoiceDetailsModel {
 //   // ....... begin famous things
 //   int? id = 0;
@@ -19,7 +18,6 @@
 //   int? unitProductId = 0;
 //   int? quantity = 0;
 //   // ....... end model things
-//
 //   InvoiceDetailsModel({
 //     // ....... begin famous things
 //     this.id,
@@ -37,7 +35,6 @@
 //     this.quantity,
 //     // ....... end model things
 //   });
-//
 //   // mapping data
 //   invoiceDetailsMap() {
 //     var mapping = Map<String, dynamic>();
@@ -58,7 +55,6 @@
 //     // ....... end model things
 //     return mapping;
 //   }
-//
 //   // data from api as json
 //   InvoiceDetailsModel.fromJson(Map<String, dynamic> json) {
 //     // ....... begin famous things
@@ -77,7 +73,6 @@
 //     quantity = json['quantity'];
 //     // ....... end model things
 //   }
-//
 //   // data to api as json from model
 //   Map<String, dynamic> toJson() {
 //     final data = <String, dynamic>{};

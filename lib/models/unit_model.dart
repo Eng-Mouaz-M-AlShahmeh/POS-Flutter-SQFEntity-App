@@ -1,7 +1,5 @@
 // // Eng Mouaz M. Al-Shahmeh
-//
 // const dateTimeString = '2020-07-17T03:18:31.177769-04:00';
-//
 // class UnitModel {
 //   // ....... begin famous things
 //   int? id = 0;
@@ -20,7 +18,6 @@
 //   String? size = '0';
 //   String? needBalance = '';
 //   // ....... end model things
-//
 //   UnitModel({
 //     // ....... begin famous things
 //     this.id,
@@ -38,7 +35,6 @@
 //     this.needBalance,
 //     // ....... end model things
 //   });
-//
 //   // mapping data
 //   unitMap() {
 //     var mapping = Map<String, dynamic>();
@@ -59,7 +55,6 @@
 //     // ....... end model things
 //     return mapping;
 //   }
-//
 //   // data from api as json
 //   UnitModel.fromJson(Map<String, dynamic> json) {
 //     // ....... begin famous things
@@ -78,7 +73,6 @@
 //     needBalance = json['needBalance'];
 //     // ....... end model things
 //   }
-//
 //   // data to api as json from model
 //   Map<String, dynamic> toJson() {
 //     final data = <String, dynamic>{};

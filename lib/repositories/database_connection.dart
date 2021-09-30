@@ -2,7 +2,6 @@
 // import 'package:sqflite/sqflite.dart';
 // import 'package:path/path.dart';
 // import 'package:path_provider/path_provider.dart';
-//
 // class DatabaseConnection {
 //   setDatabase() async {
 //     var directory = await getApplicationDocumentsDirectory();
@@ -11,7 +10,6 @@
 //         await openDatabase(path, version: 1, onCreate: _onCreatingDatabase);
 //     return database;
 //   }
-//
 //   _onCreatingDatabase(Database database, int version) async {
 //     await database.execute('''
 //         CREATE TABLE users(
@@ -34,7 +32,6 @@
 //           knownAs TEXT,
 //           photoUrl TEXT)
 //         ''');
-//
 //     await database.execute('''
 //         CREATE TABLE products(
 //           id INTEGER PRIMARY KEY,
@@ -56,7 +53,6 @@
 //           canSale INTEGER
 //           )
 //         ''');
-//
 //     await database.execute('''
 //         CREATE TABLE categories(
 //           id INTEGER PRIMARY KEY,
@@ -73,7 +69,6 @@
 //           isMain INTEGER,
 //           isSub INTEGER)
 //         ''');
-//
 //     await database.execute('''
 //         CREATE TABLE unitsProduct(
 //           id INTEGER PRIMARY KEY,
@@ -92,7 +87,6 @@
 //           productId INTEGER,
 //           unitId INTEGER)
 //         ''');
-//
 //     await database.execute('''
 //         CREATE TABLE units(
 //           id INTEGER PRIMARY KEY,
@@ -107,7 +101,6 @@
 //           size TEXT,
 //           needBalance TEXT)
 //         ''');
-//
 //     await database.execute('''
 //         CREATE TABLE buyInvoices(
 //           id INTEGER PRIMARY KEY,
@@ -134,7 +127,6 @@
 //           remainingAmount TEXT,
 //           notPayedAmount TEXT)
 //         ''');
-//
 //     await database.execute('''
 //         CREATE TABLE invoiceDetails(
 //           id INTEGER PRIMARY KEY,

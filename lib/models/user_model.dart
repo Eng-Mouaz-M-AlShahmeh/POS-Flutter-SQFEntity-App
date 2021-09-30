@@ -1,7 +1,5 @@
 // // Eng Mouaz M. Al-Shahmeh
-//
 // const dateTimeString = '2020-07-17T03:18:31.177769-04:00';
-//
 // class UserModel {
 //   int? id = 0;
 //   bool? isActive = false;
@@ -28,7 +26,6 @@
 //   String? knownAs = '';
 //   String? photoUrl = '';
 //   // ....... end model things
-//
 //   UserModel({
 //     // ....... begin famous things
 //     this.id,
@@ -55,7 +52,6 @@
 //     this.photoUrl,
 //     // ....... end model things
 //   });
-//
 //   // mapping data
 //   userMap() {
 //     var mapping = Map<String, dynamic>();
@@ -85,7 +81,6 @@
 //     // ....... end model things
 //     return mapping;
 //   }
-//
 //   // data from api as json
 //   UserModel.fromJson(Map<String, dynamic> json) {
 //     // ....... begin famous things
@@ -113,7 +108,6 @@
 //     photoUrl = json['photoUrl'];
 //     // ....... end model things
 //   }
-//
 //   // data to api as json from model
 //   Map<String, dynamic> toJson() {
 //     final data = <String, dynamic>{};

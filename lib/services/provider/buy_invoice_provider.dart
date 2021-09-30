@@ -7,7 +7,8 @@ import 'package:sells_app/services/provider/unit_product_provider.dart';
 
 class BuyInvoiceProvider extends ChangeNotifier {
   static const _dateTimeString = '2020-07-17T03:18:31.177769-04:00';
-  DateTime? _dateTime = DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
+  DateTime? _dateTime =
+      DateTime.parse(_dateTimeString.replaceFirst(RegExp(r'-\d\d:\d\d'), ''));
   DateTime? get dateTime => _dateTime;
 
   List<bool> _showUnitsList = List.filled(100, true);
@@ -79,7 +80,8 @@ class BuyInvoiceProvider extends ChangeNotifier {
   List<InvoiceDetail> _invoiceDetailsList = [];
   List<InvoiceDetail> get invoiceDetailsList => _invoiceDetailsList;
   getInvoiceDetailsList(BuildContext context) async {
-    _invoiceDetailsList = await InvoiceDetail().select().invoiceId.equals(1).toList();
+    _invoiceDetailsList =
+        await InvoiceDetail().select().invoiceId.equals(1).toList();
     sumTotal(context);
     setTotalBeforeDiscount(_total);
     notifyListeners();
@@ -116,11 +118,8 @@ class BuyInvoiceProvider extends ChangeNotifier {
   int? _invoiceDscRecordId = 0;
   int? get invoiceDscRecordId => _invoiceDscRecordId;
 
-  increaseUnitProductInInvoiceList(
-      BuildContext context,
-      InvoiceDetail invoiceDetails,
-      int unitProductId,
-      int quantity) async {
+  increaseUnitProductInInvoiceList(BuildContext context,
+      InvoiceDetail invoiceDetails, int unitProductId, int quantity) async {
     _isExistedInvoice = false;
     _isInvoiceVirtual = false;
     if (_invoiceDetailsList.isNotEmpty) {
@@ -138,35 +137,32 @@ class BuyInvoiceProvider extends ChangeNotifier {
     }
     if (_isExistedInvoice == false) {
       await InvoiceDetail(
-          createdDate: _dateTime,
-          lastModifiedDate: _dateTime,
-          createdDateInLocal: _dateTime,
-          invoiceId: '1',
-          unitProductId: invoiceDetails.unitProductId,
-          quantity: invoiceDetails.quantity,
+        createdDate: _dateTime,
+        lastModifiedDate: _dateTime,
+        createdDateInLocal: _dateTime,
+        invoiceId: '1',
+        unitProductId: invoiceDetails.unitProductId,
+        quantity: invoiceDetails.quantity,
       ).save();
-
     } else if (_isExistedInvoice == true && _isInvoiceVirtual == false) {
       await InvoiceDetail(
-          createdDate: _dateTime,
-          lastModifiedDate: _dateTime,
-          createdDateInLocal: _dateTime,
-          invoiceId: '1',
-          unitProductId: invoiceDetails.unitProductId,
-          quantity: invoiceDetails.quantity,
+        createdDate: _dateTime,
+        lastModifiedDate: _dateTime,
+        createdDateInLocal: _dateTime,
+        invoiceId: '1',
+        unitProductId: invoiceDetails.unitProductId,
+        quantity: invoiceDetails.quantity,
       ).save();
-
     } else if (_isExistedInvoice == true && _isInvoiceVirtual == true) {
       await InvoiceDetail(
-          id: _invoiceDscRecordId,
-          createdDate: _dateTime,
-          lastModifiedDate: _dateTime,
-          createdDateInLocal: _dateTime,
-          invoiceId: '1',
-          unitProductId: invoiceDetails.unitProductId,
-          quantity: quantity.toString(),
+        id: _invoiceDscRecordId,
+        createdDate: _dateTime,
+        lastModifiedDate: _dateTime,
+        createdDateInLocal: _dateTime,
+        invoiceId: '1',
+        unitProductId: invoiceDetails.unitProductId,
+        quantity: quantity.toString(),
       ).save();
-
     }
 
     getInvoiceDetailsList(context);
@@ -183,17 +179,18 @@ class BuyInvoiceProvider extends ChangeNotifier {
         }
       }
     }
-    if (_isExistedInvoice == false) { } else {
+    if (_isExistedInvoice == false) {
+    } else {
       if (quantity != 0) {
         await InvoiceDetail(
-            id: _invoiceDscRecordId,
-            createdDate: _dateTime,
-            lastModifiedDate: _dateTime,
-            createdDateInLocal: _dateTime,
-            invoiceId: '1',
-            unitProductId: unitProductId.toString(),
-            quantity: quantity.toString()
-        ).save();
+                id: _invoiceDscRecordId,
+                createdDate: _dateTime,
+                lastModifiedDate: _dateTime,
+                createdDateInLocal: _dateTime,
+                invoiceId: '1',
+                unitProductId: unitProductId.toString(),
+                quantity: quantity.toString())
+            .save();
       } else {
         await InvoiceDetail().select().id.equals(_invoiceDscRecordId).delete();
       }
@@ -208,11 +205,8 @@ class BuyInvoiceProvider extends ChangeNotifier {
     notifyListeners();
   }
 
-  updateUnitProductInInvoiceListQuantity(
-      BuildContext context,
-      InvoiceDetail invoiceDetails,
-      int unitProductId,
-      int quantity) async {
+  updateUnitProductInInvoiceListQuantity(BuildContext context,
+      InvoiceDetail invoiceDetails, int unitProductId, int quantity) async {
     _isExistedInvoice = false;
     if (_invoiceDetailsList.isNotEmpty) {
       for (int i = 0; i < _invoiceDetailsList.length; i++) {
@@ -224,25 +218,24 @@ class BuyInvoiceProvider extends ChangeNotifier {
     }
     if (_isExistedInvoice == false) {
       await InvoiceDetail(
-          createdDate: _dateTime,
-          lastModifiedDate: _dateTime,
-          createdDateInLocal: _dateTime,
-          invoiceId: '1',
-          unitProductId: unitProductId.toString(),
-          quantity: quantity.toString()
-      ).save();
-
+              createdDate: _dateTime,
+              lastModifiedDate: _dateTime,
+              createdDateInLocal: _dateTime,
+              invoiceId: '1',
+              unitProductId: unitProductId.toString(),
+              quantity: quantity.toString())
+          .save();
     } else {
       if (quantity != 0) {
         await InvoiceDetail(
-            id: _invoiceDscRecordId,
-            createdDate: _dateTime,
-            lastModifiedDate: _dateTime,
-            createdDateInLocal: _dateTime,
-            invoiceId: '1',
-            unitProductId: unitProductId.toString(),
-            quantity: quantity.toString()
-        ).save();
+                id: _invoiceDscRecordId,
+                createdDate: _dateTime,
+                lastModifiedDate: _dateTime,
+                createdDateInLocal: _dateTime,
+                invoiceId: '1',
+                unitProductId: unitProductId.toString(),
+                quantity: quantity.toString())
+            .save();
       } else {
         await InvoiceDetail().select().id.equals(_invoiceDscRecordId).delete();
       }
@@ -252,8 +245,7 @@ class BuyInvoiceProvider extends ChangeNotifier {
   }
 
   List<InvoiceDetail> _invoiceDetailsListFinal = [];
-  List<InvoiceDetail> get invoiceDetailsListFinal =>
-      _invoiceDetailsListFinal;
+  List<InvoiceDetail> get invoiceDetailsListFinal => _invoiceDetailsListFinal;
 
   int? _invoiceIdPrint = 0;
   int? get invoiceIdPrint => _invoiceIdPrint;
@@ -272,18 +264,19 @@ class BuyInvoiceProvider extends ChangeNotifier {
   addInvoiceMain(BuildContext context, BuyInvoice buyInvoice) async {
     var unitProduct = context.read<UnitProductProvider>();
     await BuyInvoice(
-        createdDate: _dateTime,
-        lastModifiedDate: _dateTime,
-        createdDateInLocal: _dateTime,
-        clientId: buyInvoice.clientId,
-        totalBeforeDiscount: buyInvoice.totalBeforeDiscount,
-        totalAfterDiscount: buyInvoice.totalAfterDiscount,
-        totalAfterVAT: buyInvoice.totalAfterVAT,
-        discountAmount: buyInvoice.discountAmount,
-        vatPercent: buyInvoice.vatPercent,
+      createdDate: _dateTime,
+      lastModifiedDate: _dateTime,
+      createdDateInLocal: _dateTime,
+      clientId: buyInvoice.clientId,
+      totalBeforeDiscount: buyInvoice.totalBeforeDiscount,
+      totalAfterDiscount: buyInvoice.totalAfterDiscount,
+      totalAfterVAT: buyInvoice.totalAfterVAT,
+      discountAmount: buyInvoice.discountAmount,
+      vatPercent: buyInvoice.vatPercent,
     ).save();
 
-    BuyInvoice? result = await BuyInvoice().select().orderByDesc('id').top(1).toSingle();
+    BuyInvoice? result =
+        await BuyInvoice().select().orderByDesc('id').top(1).toSingle();
 
     setInvoiceIdPrint(result!.id!);
     _invoiceDetailsListFinal.clear();
@@ -303,11 +296,10 @@ class BuyInvoiceProvider extends ChangeNotifier {
     await InvoiceDetail().select().invoiceId.equals(1).delete();
 
     _invoiceDetailsListFinal.forEach((element) async {
-      await UnitsProduct()
-          .select()
-          .id
-          .equals(element.unitProductId)
-          .update({'quantity': '${double.tryParse(unitProduct.unitsProductList[int.tryParse('${element.unitProductId!}')! - 1].quantity!)! - double.tryParse("${element.quantity}")!}'});
+      await UnitsProduct().select().id.equals(element.unitProductId).update({
+        'quantity':
+            '${double.tryParse(unitProduct.unitsProductList[int.tryParse('${element.unitProductId!}')! - 1].quantity!)! - double.tryParse("${element.quantity}")!}'
+      });
     });
 
     unitProduct.getAllUnitsProduct();
@@ -330,5 +322,4 @@ class BuyInvoiceProvider extends ChangeNotifier {
     _total = 0.0;
     _isInvoiceVirtual = false;
   }
-
 }

@@ -28,8 +28,7 @@ Future<void> printPdfA4(BuildContext context) async {
     ]);
   }
   final pw.Document pdf = pw.Document();
-  var arabicFont =
-      pw.Font.ttf(await rootBundle.load('assets/fonts/Arial.ttf'));
+  var arabicFont = pw.Font.ttf(await rootBundle.load('assets/fonts/Arial.ttf'));
   String timestamp = DateTime.now().toString();
   var dataImage = await rootBundle.load('assets/images/logo.png');
   var logo = dataImage.buffer
@@ -137,106 +136,104 @@ Future<void> printPdfA4(BuildContext context) async {
       build: (pw.Context context) {
         return [
           pw.Column(
-              mainAxisAlignment: pw.MainAxisAlignment.start,
-              children: [
-                pw.Padding(
-                  padding: pw.EdgeInsets.fromLTRB(0, 30, 0, 0),
-                  child: pw.Column(
-                    mainAxisAlignment: pw.MainAxisAlignment.start,
-                    children: [
-                      pw.Text('فاتورة المبيعات',
-                          style: pw.TextStyle(fontSize: 20)),
-                      pw.Container(
-                        margin: pw.EdgeInsets.fromLTRB(300, 10, 0, 10),
-                        child: pw.Text(
-                          'اسم العميل: ${buyInvoice.userId == 0 ? 'لا يوجد' : user.userList[buyInvoice.userId! - 1].username}',
-                          style: pw.TextStyle(fontSize: 16),
-                        ),
+            mainAxisAlignment: pw.MainAxisAlignment.start,
+            children: [
+              pw.Padding(
+                padding: pw.EdgeInsets.fromLTRB(0, 30, 0, 0),
+                child: pw.Column(
+                  mainAxisAlignment: pw.MainAxisAlignment.start,
+                  children: [
+                    pw.Text('فاتورة المبيعات',
+                        style: pw.TextStyle(fontSize: 20)),
+                    pw.Container(
+                      margin: pw.EdgeInsets.fromLTRB(300, 10, 0, 10),
+                      child: pw.Text(
+                        'اسم العميل: ${buyInvoice.userId == 0 ? 'لا يوجد' : user.userList[buyInvoice.userId! - 1].username}',
+                        style: pw.TextStyle(fontSize: 16),
                       ),
-                      pw.Container(
-                        margin: pw.EdgeInsets.fromLTRB(0, 5, 0, 5),
-                        child: pw.Column(
-                          mainAxisAlignment: pw.MainAxisAlignment.start,
-                          children: [
-                            pw.Divider(
-                                color: PdfColor.fromHex('#707070'), height: 1),
-                            pw.Table.fromTextArray(
-                              border: null,
-                              headerStyle: pw.TextStyle(
-                                fontSize: 16,
-                                color: PdfColor.fromHex('ffffff'),
-                              ),
-                              headerDecoration: pw.BoxDecoration(
-                                color: PdfColor.fromHex('989898'),
-                              ),
-                              headers: <dynamic>[
-                                'الإجمالي',
-                                'الكمية',
-                                'سعر البيع',
-                                'اسم المنتج',
-                                '#'
-                              ],
-                              cellAlignment: pw.Alignment.center,
-                              cellStyle: pw.TextStyle(fontSize: 16),
-                              data: tableData,
+                    ),
+                    pw.Container(
+                      margin: pw.EdgeInsets.fromLTRB(0, 5, 0, 5),
+                      child: pw.Column(
+                        mainAxisAlignment: pw.MainAxisAlignment.start,
+                        children: [
+                          pw.Divider(
+                              color: PdfColor.fromHex('#707070'), height: 1),
+                          pw.Table.fromTextArray(
+                            border: null,
+                            headerStyle: pw.TextStyle(
+                              fontSize: 16,
+                              color: PdfColor.fromHex('ffffff'),
                             ),
-                            pw.Divider(
-                                color: PdfColor.fromHex('#707070'), height: 1),
-                          ],
-                        ),
-                      ),
-                      pw.Container(
-                        margin: pw.EdgeInsets.fromLTRB(0, 10, 200, 10),
-                        child: pw.Column(
-                          mainAxisAlignment: pw.MainAxisAlignment.start,
-                          children: [
-                            pw.Divider(
-                                color: PdfColor.fromHex('#707070'), height: 1),
-                            pw.Table.fromTextArray(
-                              border: null,
-                              headerStyle: pw.TextStyle(
-                                fontSize: 14,
-                                color: PdfColor.fromHex('ffffff'),
-                              ),
-                              headerDecoration: pw.BoxDecoration(
-                                color: PdfColor.fromHex('989898'),
-                              ),
-                              headers: <dynamic>[
-                                'نسبة الضريبة المضافة',
-                                'الاجمالي بعد الخصم',
-                                'كمية الخصم',
-                                'الاجمالي قبل الخصم',
-                              ],
-                              cellAlignment: pw.Alignment.center,
-                              cellStyle: pw.TextStyle(fontSize: 14),
-                              data: <List<dynamic>>[
-                                <dynamic>[
-                                  '% ${buyInvoice.vat.toStringAsFixed(2)}',
-                                  '${buyInvoice.totalAfterDiscount.toStringAsFixed(2)} ريال',
-                                  '${buyInvoice.discountFixedAmount.toStringAsFixed(2)}',
-                                  '${buyInvoice.totalBeforeDiscount.toStringAsFixed(2)} ريال',
-                                ],
-                              ],
+                            headerDecoration: pw.BoxDecoration(
+                              color: PdfColor.fromHex('989898'),
                             ),
-                            pw.Divider(
-                                color: PdfColor.fromHex('#707070'), height: 1),
-                          ],
-                        ),
+                            headers: <dynamic>[
+                              'الإجمالي',
+                              'الكمية',
+                              'سعر البيع',
+                              'اسم المنتج',
+                              '#'
+                            ],
+                            cellAlignment: pw.Alignment.center,
+                            cellStyle: pw.TextStyle(fontSize: 16),
+                            data: tableData,
+                          ),
+                          pw.Divider(
+                              color: PdfColor.fromHex('#707070'), height: 1),
+                        ],
                       ),
-                      pw.Container(
-                        margin: pw.EdgeInsets.fromLTRB(0, 10, 300, 10),
-                        child: pw.Text(
-                          'الاجمالي النهائي: ${buyInvoice.totalAfterVAT.toStringAsFixed(2)} ريال',
-                          style: pw.TextStyle(fontSize: 20),
-                        ),
+                    ),
+                    pw.Container(
+                      margin: pw.EdgeInsets.fromLTRB(0, 10, 200, 10),
+                      child: pw.Column(
+                        mainAxisAlignment: pw.MainAxisAlignment.start,
+                        children: [
+                          pw.Divider(
+                              color: PdfColor.fromHex('#707070'), height: 1),
+                          pw.Table.fromTextArray(
+                            border: null,
+                            headerStyle: pw.TextStyle(
+                              fontSize: 14,
+                              color: PdfColor.fromHex('ffffff'),
+                            ),
+                            headerDecoration: pw.BoxDecoration(
+                              color: PdfColor.fromHex('989898'),
+                            ),
+                            headers: <dynamic>[
+                              'قيمة الضريبة المضافة',
+                              'الاجمالي بعد الخصم',
+                              'مبلغ الخصم',
+                              'الاجمالي قبل الخصم',
+                            ],
+                            cellAlignment: pw.Alignment.center,
+                            cellStyle: pw.TextStyle(fontSize: 14),
+                            data: <List<dynamic>>[
+                              <dynamic>[
+                                '${buyInvoice.vatValue.toStringAsFixed(2)} ريال',
+                                '${buyInvoice.totalAfterDiscount.toStringAsFixed(2)} ريال',
+                                '${buyInvoice.discountFixedAmount.toStringAsFixed(2)}',
+                                '${buyInvoice.totalBeforeDiscount.toStringAsFixed(2)} ريال',
+                              ],
+                            ],
+                          ),
+                          pw.Divider(
+                              color: PdfColor.fromHex('#707070'), height: 1),
+                        ],
                       ),
-                    ],
-                  ),
+                    ),
+                    pw.Container(
+                      margin: pw.EdgeInsets.fromLTRB(0, 10, 300, 10),
+                      child: pw.Text(
+                        'الاجمالي النهائي: ${buyInvoice.totalAfterVAT.toStringAsFixed(2)} ريال',
+                        style: pw.TextStyle(fontSize: 20),
+                      ),
+                    ),
+                  ],
                 ),
-              ],
-            ),
-
-
+              ),
+            ],
+          ),
         ];
       },
     ),

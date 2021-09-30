@@ -189,7 +189,6 @@ Future<void> printPdfSmall(BuildContext context) async {
                   ),
                 ),
               ),
-
             ],
           ),
           pw.Row(
